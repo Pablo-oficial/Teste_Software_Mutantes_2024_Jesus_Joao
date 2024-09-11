@@ -1,0 +1,5 @@
+pytest==8.3.2
+pytest-cov
+mutmut
+black==23.7.0
+ruff==0.0.278

@@ -1,0 +1,430 @@
+<html><body><h1>src/ip_checker.py</h1>Killed 56 out of 95 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 4</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -23,7 +23,7 @@
+         regex = "^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"
+         
+         # Regex expression for validating IPv6
+-        regex1 = "((([0-9a-fA-F]){1,4})\\:){7}([0-9a-fA-F]){1,4}"
++        regex1 = "XX((([0-9a-fA-F]){1,4})\\:){7}([0-9a-fA-F]){1,4}XX"
+         
+         # Compiling the regex expressions
+         p = re.compile(regex)
+</pre><h3>Mutant 9</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -35,7 +35,7 @@
+         
+         # Checking if it is a valid IPv6 address
+         elif (re.search(p1, self.IP)):
+-            return "Valid IPv6"
++            return "XXValid IPv6XX"
+         
+         return "Invalid IP"
+    
+</pre><h3>Mutant 17</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -52,7 +52,7 @@
+         ip = [int(i) for i in ip]
+         
+         # If ip[0] >= 0 and ip[0] <= 127 then the IP address is in class A
+-        if ip[0] >= 0 and ip[0] <= 127:
++        if ip[1] >= 0 and ip[0] <= 127:
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+</pre><h3>Mutant 18</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -52,7 +52,7 @@
+         ip = [int(i) for i in ip]
+         
+         # If ip[0] >= 0 and ip[0] <= 127 then the IP address is in class A
+-        if ip[0] >= 0 and ip[0] <= 127:
++        if ip[0] > 0 and ip[0] <= 127:
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+</pre><h3>Mutant 19</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -52,7 +52,7 @@
+         ip = [int(i) for i in ip]
+         
+         # If ip[0] >= 0 and ip[0] <= 127 then the IP address is in class A
+-        if ip[0] >= 0 and ip[0] <= 127:
++        if ip[0] >= 1 and ip[0] <= 127:
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+</pre><h3>Mutant 20</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -52,7 +52,7 @@
+         ip = [int(i) for i in ip]
+         
+         # If ip[0] >= 0 and ip[0] <= 127 then the IP address is in class A
+-        if ip[0] >= 0 and ip[0] <= 127:
++        if ip[0] >= 0 and ip[1] <= 127:
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+</pre><h3>Mutant 22</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -52,7 +52,7 @@
+         ip = [int(i) for i in ip]
+         
+         # If ip[0] >= 0 and ip[0] <= 127 then the IP address is in class A
+-        if ip[0] >= 0 and ip[0] <= 127:
++        if ip[0] >= 0 and ip[0] <= 128:
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+</pre><h3>Mutant 23</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -52,7 +52,7 @@
+         ip = [int(i) for i in ip]
+         
+         # If ip[0] >= 0 and ip[0] <= 127 then the IP address is in class A
+-        if ip[0] >= 0 and ip[0] <= 127:
++        if ip[0] >= 0 or ip[0] <= 127:
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+</pre><h3>Mutant 25</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[1] >= 128 and ip[0] <= 191:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 26</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[0] > 128 and ip[0] <= 191:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 27</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[0] >= 129 and ip[0] <= 191:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 28</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[0] >= 128 and ip[1] <= 191:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 29</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[0] >= 128 and ip[0] < 191:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 30</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[0] >= 128 and ip[0] <= 192:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 31</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -56,7 +56,7 @@
+             return "A"
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+-        elif ip[0] >= 128 and ip[0] <= 191:
++        elif ip[0] >= 128 or ip[0] <= 191:
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+</pre><h3>Mutant 32</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -57,7 +57,7 @@
+         
+         # If ip[0] >= 128 and ip[0] <= 191 then the IP address is in class B
+         elif ip[0] >= 128 and ip[0] <= 191:
+-            return "B"
++            return "XXBXX"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+         elif ip[0] >= 192 and ip[0] <= 223:
+</pre><h3>Mutant 33</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[1] >= 192 and ip[0] <= 223:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 34</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[0] > 192 and ip[0] <= 223:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 35</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[0] >= 193 and ip[0] <= 223:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 36</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[0] >= 192 and ip[1] <= 223:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 37</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[0] >= 192 and ip[0] < 223:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 38</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[0] >= 192 and ip[0] <= 224:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 39</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -60,7 +60,7 @@
+             return "B"
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+-        elif ip[0] >= 192 and ip[0] <= 223:
++        elif ip[0] >= 192 or ip[0] <= 223:
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+</pre><h3>Mutant 40</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -61,7 +61,7 @@
+         
+         # If ip[0] >= 192 and ip[0] <= 223 then the IP address is in class C
+         elif ip[0] >= 192 and ip[0] <= 223:
+-            return "C"
++            return "XXCXX"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+         elif ip[0] >= 224 and ip[0] <= 239:
+</pre><h3>Mutant 41</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[1] >= 224 and ip[0] <= 239:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 42</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[0] > 224 and ip[0] <= 239:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 43</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[0] >= 225 and ip[0] <= 239:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 44</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[0] >= 224 and ip[1] <= 239:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 45</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[0] >= 224 and ip[0] < 239:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 46</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[0] >= 224 and ip[0] <= 240:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 47</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -64,7 +64,7 @@
+             return "C"
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+-        elif ip[0] >= 224 and ip[0] <= 239:
++        elif ip[0] >= 224 or ip[0] <= 239:
+             return "D"
+         
+         # Otherwise the IP address is in Class E
+</pre><h3>Mutant 48</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -65,7 +65,7 @@
+         
+         # If ip[0] >= 224 and ip[0] <= 239 then the IP address is in class D
+         elif ip[0] >= 224 and ip[0] <= 239:
+-            return "D"
++            return "XXDXX"
+         
+         # Otherwise the IP address is in Class E
+         else:
+</pre><h3>Mutant 49</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -69,7 +69,7 @@
+         
+         # Otherwise the IP address is in Class E
+         else:
+-            return "E"
++            return "XXEXX"
+     
+     def format_ip(self):
+         """
+</pre><h3>Mutant 53</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -80,7 +80,7 @@
+             parts = [str(int(part)) for part in self.IP.split('.')]
+             return '.'.join(parts)
+         except ValueError:
+-            return "Invalid IP"
++            return "XXInvalid IPXX"
+     
+     def ip_to_int(self):
+         """
+</pre><h3>Mutant 71</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -99,7 +99,7 @@
+         :return: True if the IP address is reserved, otherwise False.
+         """
+         if self.validate_it() != "Valid IPv4":
+-            return False
++            return True
+         
+         ip_parts = [int(part) for part in self.IP.split('.')]
+         # Check if the IP falls within the reserved ranges
+</pre><h3>Mutant 83</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -104,7 +104,7 @@
+         ip_parts = [int(part) for part in self.IP.split('.')]
+         # Check if the IP falls within the reserved ranges
+         if (ip_parts[0] == 10) or \
+-           (ip_parts[0] == 172 and 16 <= ip_parts[1] <= 31) or \
++           (ip_parts[0] == 172 and 16 <= ip_parts[1] < 31) or \
+            (ip_parts[0] == 192 and ip_parts[1] == 168):
+             return True
+         
+</pre><h3>Mutant 84</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -104,7 +104,7 @@
+         ip_parts = [int(part) for part in self.IP.split('.')]
+         # Check if the IP falls within the reserved ranges
+         if (ip_parts[0] == 10) or \
+-           (ip_parts[0] == 172 and 16 <= ip_parts[1] <= 31) or \
++           (ip_parts[0] == 172 and 16 <= ip_parts[1] <= 32) or \
+            (ip_parts[0] == 192 and ip_parts[1] == 168):
+             return True
+         
+</pre><h3>Mutant 85</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -104,7 +104,7 @@
+         ip_parts = [int(part) for part in self.IP.split('.')]
+         # Check if the IP falls within the reserved ranges
+         if (ip_parts[0] == 10) or \
+-           (ip_parts[0] == 172 and 16 <= ip_parts[1] <= 31) or \
++           (ip_parts[0] == 172 or 16 <= ip_parts[1] <= 31) or \
+            (ip_parts[0] == 192 and ip_parts[1] == 168):
+             return True
+         
+</pre><h3>Mutant 92</h3><pre>--- src/ip_checker.py
++++ src/ip_checker.py
+@@ -105,7 +105,7 @@
+         # Check if the IP falls within the reserved ranges
+         if (ip_parts[0] == 10) or \
+            (ip_parts[0] == 172 and 16 <= ip_parts[1] <= 31) or \
+-           (ip_parts[0] == 192 and ip_parts[1] == 168):
++           (ip_parts[0] == 192 or ip_parts[1] == 168):
+             return True
+         
+         return False
+</pre></body></html>
